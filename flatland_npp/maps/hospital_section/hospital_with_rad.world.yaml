@@ -12,7 +12,7 @@ layers:  # Support for arbitrary number of layers
     color: [0, 1, 1, 1]
 models:
   - name: source0
-    pose: [6,12,0]
+    pose: [15.5,12.5,0]
     model: rad_point.model.yaml
   #- name: door0
     #pose: [5.15, 10.0, 0]
