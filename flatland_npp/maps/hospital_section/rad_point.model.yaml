@@ -1,0 +1,29 @@
+# Table
+
+bodies:  # List of named bodies
+  - name: point_source
+    pose: [0, 0, 0]
+    type: static
+    color: [1, 1, 0, 0.75]
+    linear_damping: 1
+    angular_damping: .5
+    footprints:
+      - type: circle
+        radius: 0.01
+        center: [0.0, 0.0]
+        density: 1
+        layers: ["2d"]
+
+plugins:
+  - type: RadiationSource
+    enabled: true
+    name: source
+    body: point_source
+    frame: point_source
+    topic: source
+    broadcast_tf: false
+    origin: [0, 0, 0]
+    noise_std_dev: 0.04
+    update_rate: 10
+    value: 300.0
+    layers: ["rad"]
