@@ -8,10 +8,12 @@ global_costmap:
 
   static_map: true
 
-plugins:
- - name: static_layer
-   type: "costmap_2d::StaticLayer"
- - name: inflation_layer
-   type: "costmap_2d::InflationLayer"
- - name: simple_shape
-   type: "simple_layer_namespace::SimpleShape"
+  plugins:
+   - name: static_layer
+     type: "costmap_2d::StaticLayer"
+   - name: inflation_layer
+     type: "costmap_2d::InflationLayer"
+   - name: simple_shape
+     type: "simple_layer_namespace::SimpleShape"
+   #- name: grid_layer
+     #type: "simple_layer_namespace::GridLayer"

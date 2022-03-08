@@ -28,7 +28,7 @@
   You can override these default values:
     roslaunch flatland_Server server.launch world_path:="/some/world.yaml" initial_rate:="30.0"
   -->
-  <arg name="world_path"   default="$(find flatland_npp)/maps/hospital_section/hospital_section.world.yaml"/>
+  <arg name="world_path"   default="$(find flatland_npp)/maps/hospital_section/hospital_with_rad.world.yaml"/>
   <arg name="update_rate" default="100.0"/>
   <arg name="step_size" default="0.01"/>
   <arg name="viz_pub_rate" default="30.0"/>
@@ -72,7 +72,7 @@
 
   <!--  ************** Navigation  ***************  -->
 
-  <include file="$(find turtlebot3_navigation)/launch/move_base.launch">
+  <include file="$(find flatland_npp)/launch/move_base.launch">
     <arg name="move_forward_only" value="$(arg move_forward_only)"/>
     <arg name="model" value="$(arg model)" />
     <arg name="odom_topic" value="$(arg odom_topic)"/>
@@ -87,7 +87,8 @@
   <!--<rosparam file="$(find flatland_npp)/param/move_base_params.yaml" command="load" />-->
   <!--<rosparam file="$(find flatland_npp)/param/dwa_local_planner_params_$(arg model).yaml" command="load" />-->
    <!--<arg name="laser_topic" value="$(arg laser_topic)"/>-->
-  <node pkg="rosservice" type="rosservice" name="set_move_base_log_level" args="call --wait /move_base/set_logger_level 'ros.move_base' 'debug'" />
+
+
  <!-- ***************** Manually setting some parameters ************************* -->
     <param name="move_base/local_costmap/obstacle_layer/scan/min_obstacle_height" value="$(arg min_obstacle_height)"/>
     <param name="move_base/local_costmap/obstacle_layer/scan/max_obstacle_height" value="$(arg max_obstacle_height)"/>
