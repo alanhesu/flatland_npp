@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>flatland_plugins_npp</name>
+  <version>1.0.0</version>
+  <description>NPP plugins for flatland</description>
+  <license>BSD</license>
+  <url type="website">https://bitbucket.org/avidbots/flatland</url>
+
+  <maintainer email="alanhesu@gmail.com">Alan Hesu</maintainer>
+  <!--<author email="joseph@avidbots.com">Joseph Duchesne</author>-->
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>flatland_server</depend>
+  <depend>pluginlib</depend>
+  <depend>roscpp</depend>
+  <depend>yaml-cpp</depend>
+  <depend>cmake_modules</depend>
+  <depend>tf</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>flatland_msgs</depend>
+  <depend>flatland_plugins</depend>
+  <depend>nav_msgs</depend>
+
+  <export>
+    <flatland_server plugin="${prefix}/flatland_plugins_npp.xml" />
+  </export>
+</package>

@@ -1,0 +1,5 @@
+<library path="lib/libflatland_plugins_npp_lib">
+  <class type="flatland_plugins_npp::RadiationSource" base_class_type="flatland_server::ModelPlugin">
+    <description>Simple radiation point source</description>
+  </class>
+</library>
