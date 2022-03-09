@@ -28,7 +28,7 @@
   You can override these default values:
     roslaunch flatland_Server server.launch world_path:="/some/world.yaml" initial_rate:="30.0"
   -->
-  <arg name="world_path"   default="$(find flatland_npp)/maps/2TB112/2TB112.world.yaml"/>
+  <arg name="world_path"   default="$(find flatland_npp)/maps/hospital_section/hospital_with_rad.world.yaml"/>
   <arg name="update_rate" default="100.0"/>
   <arg name="step_size" default="0.01"/>
   <arg name="viz_pub_rate" default="30.0"/>
@@ -66,7 +66,7 @@
   <!--</node>-->
 
   <!-- ****** Maps ***** -->
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find flatland_npp)/maps/2TB112/2TB112.yaml">
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find flatland_npp)/maps/hospital_section/hospital_section.yaml">
    <param name="frame_id" value="$(arg global_frame_id)"/>
   </node>
 

@@ -1,0 +1,7 @@
+image: 2TB112_lowres.png
+#resolution: 0.167
+resolution: 0.334
+origin: [-40.0, -40.0, 0.0]
+occupied_thresh: 0.6
+free_thresh: 0.3
+negate: 0
