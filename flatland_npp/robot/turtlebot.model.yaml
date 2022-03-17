@@ -61,7 +61,7 @@ plugins:
     body: base_footprint
     odom_frame_id: odom
     odom_pub: odom # topic odom is published on
-    pub_rate: 10
+    pub_rate: 20
     # odom_pose_noise: [0.0005,0.0005,0.0001]
     #odom_twist_noise: [0.001,0.001,0.001]
     # odom_pose_covariance: [0.00, 0.01, 0.02, 0.03, 0.04, 0.05,
@@ -77,10 +77,13 @@ plugins:
     body: base_scan
     broadcast_tf: false
     origin: [0, 0, 0]
+    #range: 200
+    #angle: {min: -2.356194490192345, max: 2.356194490192345, increment: 0.04363323129985824}
     range: 20
-    angle: {min: -2.356194490192345, max: 2.356194490192345, increment: 0.04363323129985824}
+    #angle: {min: -2.356194490192345, max: 2.356194490192345, increment: 0.01308996939}
+    angle: {min: -3.1416, max: 3.1416, increment: 0.01745333333}
     noise_std_dev: 0.01
-    update_rate: 40
+    update_rate: 5
     layers: ["2d"]
   - type: Laser
     name: laser_3d
@@ -97,6 +100,6 @@ plugins:
 
   - type: ModelTfPublisher
     name: tf_publisher
-    publish_tf_world: false
+    publish_tf_world: true
     world_frame_id: map
     reference: base_footprint

@@ -16,8 +16,8 @@
   <arg name="move_forward_only" default="false"/>
   <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
   <!-- Name of the map to use (without path nor extension) and initial position -->
-  <arg name="initial_pose_x" default="3.0"/>
-  <arg name="initial_pose_y" default="7.0"/>
+  <arg name="initial_pose_x" default="210.0"/>
+  <arg name="initial_pose_y" default="100.0"/>
   <arg name="initial_pose_a" default="0.0"/>
   <arg name="min_obstacle_height" default="0.0"/>
   <arg name="max_obstacle_height" default="5.0"/>
@@ -29,7 +29,7 @@
     roslaunch flatland_Server server.launch world_path:="/some/world.yaml" initial_rate:="30.0"
   -->
   <arg name="world_path"   default="$(find flatland_npp)/maps/2TB112/2TB112.world.yaml"/>
-  <arg name="update_rate" default="100.0"/>
+  <arg name="update_rate" default="500.0"/>
   <arg name="step_size" default="0.01"/>
   <arg name="viz_pub_rate" default="30.0"/>
   <arg name="show_viz" default="true"/>
@@ -105,10 +105,25 @@
     <arg name="initial_pose_y" value="$(arg initial_pose_y)"/>
     <arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
   </include>
+  <param name="amcl/laser_max_range" value="30"/>
   <param name="amcl/odom_frame_id" value="$(arg odom_frame_id)"/>
   <param name="amcl/base_frame_id" value="$(arg base_frame_id)"/>
   <param name="amcl/use_map_topic" value="true"/>
   <param name="amcl/global_frame_id" value="$(arg global_frame_id)"/>
+  <param name="amcl/laser_max_range"           value="20"/>
+  <param name="amcl/laser_max_beams"           value="360"/>
+  <param name="amcl/laser_z_hit"               value="0.5"/>
+  <param name="amcl/laser_z_short"             value="0.05"/>
+  <param name="amcl/laser_z_max"               value="0.05"/>
+  <param name="amcl/laser_z_rand"              value="0.5"/>
+  <param name="amcl/laser_sigma_hit"           value="0.2"/>
+  <param name="amcl/laser_lambda_short"        value="0.1"/>
+  <param name="amcl/laser_likelihood_max_dist" value="2.0"/>
+  <param name="amcl/odom_alpha1"               value="0.0"/>
+  <param name="amcl/odom_alpha2"               value="0.0"/>
+  <param name="amcl/odom_alpha3"               value="0.0"/>
+  <param name="amcl/odom_alpha4"               value="0.0"/>
+  <param name="amcl/tf_broadcast"               value="false"/>
 
   <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 0 0 0 map odom 50">
   </node>
