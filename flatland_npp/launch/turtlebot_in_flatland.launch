@@ -29,7 +29,7 @@
     roslaunch flatland_Server server.launch world_path:="/some/world.yaml" initial_rate:="30.0"
   -->
   <arg name="world_path"   default="$(find flatland_npp)/maps/2TB112/2TB112.world.yaml"/>
-  <arg name="update_rate" default="500.0"/>
+  <arg name="update_rate" default="100.0"/>
   <arg name="step_size" default="0.01"/>
   <arg name="viz_pub_rate" default="30.0"/>
   <arg name="show_viz" default="true"/>

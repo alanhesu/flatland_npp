@@ -1,6 +1,7 @@
-image: 2TB112_lowres.png
-#resolution: 0.167
-resolution: 0.334
+image: 2TB112_quarterres.png
+#resolution: 0.167 # fullres
+#resolution: 0.334 # lowres
+resolution: 0.6667 # quarterres
 origin: [-40.0, -40.0, 0.0]
 occupied_thresh: 0.6
 free_thresh: 0.3
