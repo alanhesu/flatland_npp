@@ -15,6 +15,7 @@ def read_model_list(fname, model_list):
     return model_list
 
 def get_contours(img, model_list):
+    h, w, c = img.shape
     # append contours to model_list
     for i in range(len(model_list)):
         model = model_list[i]
@@ -32,7 +33,19 @@ def get_contours(img, model_list):
         # convert to a numpy array
         cnts = np.array(cnts)[:,0,:]
         cnts = cnts.astype('float64')
+        # add an extra pixel of padding
+        xind = np.where(cnts[:,0] != np.min(cnts[:,0]))
+        yind = np.where(cnts[:,1] != np.min(cnts[:,1]))
+        cnts[xind,0] = cnts[xind,0] + 1
+        cnts[yind,1] = cnts[yind,1] + 1
         model_list[i].append(cnts)
+
+        # also add origin to list
+        orig = np.mean(cnts, axis=0)
+        model_list[i].append(orig)
+
+        # cv2.imshow('img', cv2.circle(img, tuple(orig.astype(int)), radius=0, color=(0, 0, 255), thickness=1))
+        # cv2.waitKey(0)
     return model_list
 
 def populate_modelfile(fname, model):
@@ -43,7 +56,18 @@ def populate_modelfile(fname, model):
         if 'name:' in lines[i]:
             lines[i] = lines[i][:-1] + ' ' + model[0] + '\n'
         if 'points:' in lines[i]:
-            lines[i] = lines[i] + ' ' + np.array2string(model[4], separator=', ') + '\n'
+            lines[i] = lines[i][:-1] + ' ' + np.array2string(model[4], separator=', ').replace('\n', '') + '\n'
+
+    return lines
+
+def populate_modellist(model_list):
+    lines = []
+    for model in model_list:
+        modnum = 0
+        lines.append('  - name: {}{}\n'.format(model[0], modnum))
+        lines.append('    pose: [{}, {}, 0.0]\n'.format(model[5][0], model[5][1]))
+        lines.append('    model: {}.model.yaml\n'.format(model[0]))
+        modnum += 1
 
     return lines
 
@@ -61,9 +85,12 @@ def generate_models(imfile, csvfile, outdir, resolution, origin):
 
     # convert contours to polygon points for flatland model
     for i in range(0, len(model_list)):
-        coords = model_list[i][4]
-        coords[:,0] = (w - coords[:,0])*resolution + origin[0]
-        coords[:,1] = (h - coords[:,1])*resolution + origin[1]
+        model_list[i][4] = (model_list[i][4] - model_list[i][5])*resolution
+
+        # convert points to world coordinates
+        loc = model_list[i][5]
+        loc[0] = loc[0]*resolution + origin[0]
+        loc[1] = (h - loc[1])*resolution + origin[1]
 
     # generate flatland model files
     # read in a template file template.model.yaml
@@ -73,6 +100,13 @@ def generate_models(imfile, csvfile, outdir, resolution, origin):
         model_file = os.path.join(outdir, model[0] + '.model.yaml')
         with open(model_file, 'w') as f:
             f.writelines(lines)
+
+    # generate model list
+    world_modellist = 'modellist.world.yaml'
+    lines = populate_modellist(model_list)
+    modellist_file = os.path.join(outdir, world_modellist)
+    with open(modellist_file, 'w') as f:
+        f.writelines(lines)
 
 parser = argparse.ArgumentParser()
 parser.add_argument('imfile')

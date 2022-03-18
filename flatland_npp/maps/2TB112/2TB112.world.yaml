@@ -26,3 +26,6 @@ models:
   #- name: door0
     #pose: [5.15, 10.0, 0]
     #model: door.model.yaml
+  - name: test0
+    pose: [121.67475, 91.00655, 0.0]
+    model: test.model.yaml

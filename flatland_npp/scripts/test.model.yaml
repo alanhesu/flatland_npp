@@ -7,10 +7,6 @@ bodies:  # List of named bodies
     angular_damping: .5
     footprints:
       - type: polygon
-        points:
- [[180.011 ,  94.6734],
- [180.011 ,  88.0064],
- [150.6762,  88.0064],
- [150.6762,  94.6734]]
+        points: [[-15.00075,  -3.66685], [-15.00075,   3.66685], [ 15.00075,   3.66685], [ 15.00075,  -3.66685]]
         density: 1
         layers: ["2d"]

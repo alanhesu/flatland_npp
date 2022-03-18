@@ -1,1 +1,7 @@
    <node pkg="rosservice" type="rosservice" name="set_move_base_log_level" args="call --wait /move_base/set_logger_level 'ros.move_base' 'debug'" />
+
+point and line sources
+- in a pipe, water is a line source with height h
+- line source more than h/2 away = 1/R^2
+- line source less than h/2 away = 1/R
+- curie-meter thumb rule - 1 curie reads 1 rem at 1 meter away
