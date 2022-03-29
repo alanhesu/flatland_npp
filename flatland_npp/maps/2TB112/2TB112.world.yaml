@@ -26,6 +26,13 @@ models:
   #- name: door0
     #pose: [5.15, 10.0, 0]
     #model: door.model.yaml
+# added from map_to_model script
   - name: test0
+    pose: [121.67475, 77.00585, 0.0]
+    model: test.model.yaml
+  - name: test1
     pose: [121.67475, 91.00655, 0.0]
     model: test.model.yaml
+  - name: test20
+    pose: [60.33835, 87.67305, 0.0]
+    model: test2.model.yaml
