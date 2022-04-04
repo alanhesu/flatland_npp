@@ -1,0 +1,69 @@
+properties: {} # For later use
+layers:  # Support for arbitrary number of layers
+  - name: "robot"  # So that sensors can trigger on just the robot
+  - name: "2d"  # layer 0 named "2d"
+    map: "test_npp.yaml"  # leading / denotes absolute file path, otherwise relative
+    color: [0, 1, 0, 1]  # List of floats [r,g,b,a] to color debug boundary
+  - name: "3d"
+    map: "test_npp.yaml"  # leading / denotes absolute file path, otherwise relative
+    color: [0, 1, 0, 0]  # List of floats [r,g,b,a] to color debug boundary
+  - name: "rad"
+    map: "test_npp.yaml"
+    color: [0, 1, 1, 1]
+models:
+# added from map_to_model script
+  - name: condenser0
+    pose: [43.35, 20.35, 0.0]
+    model: condenser.model.yaml
+  - name: condenser1
+    pose: [43.35, 35.95, 0.0]
+    model: condenser.model.yaml
+  - name: condenser_pipe10
+    pose: [43.25, 46.65, 0.0]
+    model: condenser_pipe1.model.yaml
+  - name: condenser_pipe20
+    pose: [43.25, 28.15, 0.0]
+    model: condenser_pipe2.model.yaml
+  - name: tank10
+    pose: [16.5, 34.55, 0.0]
+    model: tank1.model.yaml
+  - name: tank11
+    pose: [16.5, 39.05, 0.0]
+    model: tank1.model.yaml
+  - name: tank12
+    pose: [16.5, 46.55, 0.0]
+    model: tank1.model.yaml
+  - name: tank13
+    pose: [16.5, 51.15, 0.0]
+    model: tank1.model.yaml
+  - name: tank20
+    pose: [76.85, 9.85, 0.0]
+    model: tank2.model.yaml
+  - name: tank21
+    pose: [76.85, 13.35, 0.0]
+    model: tank2.model.yaml
+  - name: pump10
+    pose: [75.35, 25.25, 0.0]
+    model: pump1.model.yaml
+  - name: pump11
+    pose: [75.35, 30.45, 0.0]
+    model: pump1.model.yaml
+  - name: pump12
+    pose: [75.35, 35.25, 0.0]
+    model: pump1.model.yaml
+  #- name: turtlebot1
+    #pose: [0, 0, 0]
+    #model: "../../robot/turtlebot.model.yaml"
+plugins:
+  - type: flatland_plugins::RadiationSourceWorld
+    name: source0
+    topic: "rad_sources"
+    update_rate: 50
+    layers: ["all"]
+  #- type: flatland_plugins::RandomWall
+    #name: test1
+    #layer: "2d"
+    #num_of_walls: 10
+    #wall_wall_dist: 1
+    #double_wall: true
+    #robot_name: turtlebot1

@@ -56,7 +56,7 @@ joints:
         anchor: [0, 0]
 
 plugins:
-  - type: DiffDrive
+  - type: flatland_plugins::DiffDrive
     name: turtlebot_drive
     body: base_footprint
     odom_frame_id: odom
@@ -70,7 +70,7 @@ plugins:
     #                         0.18, 0.19, 0.20, 0.21, 0.22, 0.23,
     #                         0.24, 0.25, 0.26, 0.27, 0.28, 0.29,
     #                         0.30, 0.31, 0.32, 0.33, 0.34, 0.35]
-  - type: Laser
+  - type: flatland_plugins::Laser
     name: laser_front
     frame: base_scan
     topic: scan
@@ -85,7 +85,7 @@ plugins:
     noise_std_dev: 0.01
     update_rate: 5
     layers: ["2d"]
-  - type: Laser
+  - type: flatland_plugins::Laser
     name: laser_3d
     frame: base_scan
     topic: scan_3d
@@ -98,7 +98,7 @@ plugins:
     update_rate: 10
     layers: ["2d", "3d"]
 
-  - type: ModelTfPublisher
+  - type: flatland_plugins::ModelTfPublisher
     name: tf_publisher
     publish_tf_world: true
     world_frame_id: map

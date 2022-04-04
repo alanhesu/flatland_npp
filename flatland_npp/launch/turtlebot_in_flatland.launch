@@ -16,8 +16,8 @@
   <arg name="move_forward_only" default="false"/>
   <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
   <!-- Name of the map to use (without path nor extension) and initial position -->
-  <arg name="initial_pose_x" default="210.0"/>
-  <arg name="initial_pose_y" default="100.0"/>
+  <arg name="initial_pose_x" default="40.0"/>
+  <arg name="initial_pose_y" default="50.0"/>
   <arg name="initial_pose_a" default="0.0"/>
   <arg name="min_obstacle_height" default="0.0"/>
   <arg name="max_obstacle_height" default="5.0"/>
@@ -28,7 +28,7 @@
   You can override these default values:
     roslaunch flatland_Server server.launch world_path:="/some/world.yaml" initial_rate:="30.0"
   -->
-  <arg name="world_path"   default="$(find flatland_npp)/maps/2TB112/2TB112.world.yaml"/>
+  <arg name="world_path"   default="$(find flatland_npp)/maps/test_npp/test_npp.world.yaml"/>
   <arg name="update_rate" default="100.0"/>
   <arg name="step_size" default="0.01"/>
   <arg name="viz_pub_rate" default="30.0"/>
@@ -40,6 +40,8 @@
 
   <!-- launch flatland server -->
   <node name="flatland_server" pkg="flatland_server" type="flatland_server" output="screen">
+  <!--<node name="flatland_server" pkg="flatland_server" type="flatland_server" output="screen" launch-prefix="gdb -ex run &#45;&#45;args" >-->
+  <!-- run with gdb -->
     <!-- Use the arguments passed into the launchfile for this node -->
     <param name="world_path" value="$(arg world_path)" />
     <param name="update_rate" value="$(arg update_rate)" />
@@ -66,7 +68,7 @@
   <!--</node>-->
 
   <!-- ****** Maps ***** -->
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find flatland_npp)/maps/2TB112/2TB112.yaml">
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find flatland_npp)/maps/test_npp/test_npp.yaml">
    <param name="frame_id" value="$(arg global_frame_id)"/>
   </node>
 

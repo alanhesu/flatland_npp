@@ -5,3 +5,5 @@ point and line sources
 - line source more than h/2 away = 1/R^2
 - line source less than h/2 away = 1/R
 - curie-meter thumb rule - 1 curie reads 1 rem at 1 meter away
+
+    <!--<node name="flatland_server" pkg="flatland_server" type="flatland_server" output="screen" launch-prefix="gdb -ex run --args" -->

@@ -36,3 +36,10 @@ models:
   - name: test20
     pose: [60.33835, 87.67305, 0.0]
     model: test2.model.yaml
+#plugins:
+  #- type: RandomWall
+    #name: randomwall0
+    #layer: "2d"
+    #num_of_walls: 0
+    #wall_wall_dist: 1
+    #robot_name: turtlebot0
