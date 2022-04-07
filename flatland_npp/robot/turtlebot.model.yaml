@@ -97,6 +97,15 @@ plugins:
     noise_std_dev: 0.04
     update_rate: 10
     layers: ["2d", "3d"]
+  - type: flatland_plugins::RadiationSensor
+    name: radsensor
+    frame: base_footprint
+    sub_topic: /rad_sources
+    topic: sensor0
+    body: base_footprint
+    broadcast_tf: false
+    origin: [0, 0, 0]
+    update_rate: 10
 
   - type: flatland_plugins::ModelTfPublisher
     name: tf_publisher
