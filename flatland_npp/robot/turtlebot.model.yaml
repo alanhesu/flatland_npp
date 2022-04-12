@@ -101,7 +101,7 @@ plugins:
     name: radsensor
     frame: base_footprint
     sub_topic: /rad_sources
-    topic: sensor0
+    topic: rad_sensor
     body: base_footprint
     broadcast_tf: false
     origin: [0, 0, 0]

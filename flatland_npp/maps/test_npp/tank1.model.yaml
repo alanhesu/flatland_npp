@@ -13,8 +13,9 @@ bodies:  # List of named bodies
 plugins:
   - type: RadiationSource
     name: source0
-    enabled: true
+    enabled: false
     body: tank1
+    geometry: point
     update_rate: 50
     origin: [0, 0, 0]
     value: 900
