@@ -6,17 +6,19 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 ArgType	flatland_plugins_npp/include/thirdparty/tweeny/easingresolve.h	/^            typedef typename std::tuple_element<I, TypeTuple>::type ArgType;$/;"	t	struct:tweeny::detail::easingresolve
 BeforePhysicsStep	flatland_plugins_npp/src/radiation_source.cpp	/^void RadiationSource::BeforePhysicsStep(const Timekeeper &timekeeper) {$/;"	f	class:flatland_plugins_npp::RadiationSource
-BeforePhysicsStep	flatland_plugins_npp/src/radiation_source_world.cpp	/^void RadiationSource::BeforePhysicsStep(const Timekeeper &timekeeper) {$/;"	f	class:flatland_plugins_npp::RadiationSource
+BeforePhysicsStep	flatland_plugins_npp/src/radiation_source_world.cpp	/^void RadiationSourceWorld::BeforePhysicsStep(const Timekeeper &timekeeper) {$/;"	f	class:flatland_plugins_npp::RadiationSourceWorld
 DECLARE_EASING_RESOLVE	flatland_plugins_npp/include/thirdparty/tweeny/easingresolve.h	67;"	d
-FLATLAND_PLUGINS_NPP_RADIATIONSOURCEWORLD_H	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	15;"	d
+FLATLAND_PLUGINS_NPP_RADIATIONSOURCEWORLD_H	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	14;"	d
 FLATLAND_PLUGINS_NPP_RADIATIONSOURCE_H	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	15;"	d
 M_PI	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	38;"	d
 OnInitialize	flatland_plugins_npp/src/radiation_source.cpp	/^void RadiationSource::OnInitialize(const YAML::Node &config) {$/;"	f	class:flatland_plugins_npp::RadiationSource
-OnInitialize	flatland_plugins_npp/src/radiation_source_world.cpp	/^void RadiationSource::OnInitialize(const YAML::Node &config) {$/;"	f	class:flatland_plugins_npp::RadiationSource
+OnInitialize	flatland_plugins_npp/src/radiation_source_world.cpp	/^void RadiationSourceWorld::OnInitialize(const YAML::Node &config) {$/;"	f	class:flatland_plugins_npp::RadiationSourceWorld
 ParseParameters	flatland_plugins_npp/src/radiation_source.cpp	/^void RadiationSource::ParseParameters(const YAML::Node &config) {$/;"	f	class:flatland_plugins_npp::RadiationSource
-ParseParameters	flatland_plugins_npp/src/radiation_source_world.cpp	/^void RadiationSource::ParseParameters(const YAML::Node &config) {$/;"	f	class:flatland_plugins_npp::RadiationSource
+ParseParameters	flatland_plugins_npp/src/radiation_source_world.cpp	/^void RadiationSourceWorld::ParseParameters(const YAML::Node &config) {$/;"	f	class:flatland_plugins_npp::RadiationSourceWorld
+PopulateSourceMsg	flatland_plugins_npp/src/radiation_source_world.cpp	/^void RadiationSourceWorld::PopulateSourceMsg(const Timekeeper &timekeeper) {$/;"	f	class:flatland_plugins_npp::RadiationSourceWorld
 RadiationSource	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^class RadiationSource: public ModelPlugin {$/;"	c	namespace:flatland_plugins_npp
-RadiationSource	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^class RadiationSource: public WorldPlugin {$/;"	c	namespace:flatland_plugins_npp
+RadiationSourceWorld	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^class RadiationSourceWorld : public WorldPlugin {$/;"	c	namespace:flatland_plugins_npp
+Source	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^struct Source {$/;"	s	namespace:flatland_plugins_npp
 THREAD_POOL_H	flatland_plugins_npp/include/thirdparty/ThreadPool.h	27;"	d
 TWEENY_DISPATCHER_H	flatland_plugins_npp/include/thirdparty/tweeny/dispatcher.h	29;"	d
 TWEENY_EASINGRESOLVE_H	flatland_plugins_npp/include/thirdparty/tweeny/easingresolve.h	32;"	d
@@ -28,6 +30,7 @@ TWEENY_TWEENTRAITS_H	flatland_plugins_npp/include/thirdparty/tweeny/tweentraits.
 TWEENY_TWEEN_H	flatland_plugins_npp/include/thirdparty/tweeny/tween.h	31;"	d
 ThreadPool	flatland_plugins_npp/include/thirdparty/ThreadPool.h	/^class ThreadPool {$/;"	c
 ThreadPool	flatland_plugins_npp/include/thirdparty/ThreadPool.h	/^inline ThreadPool::ThreadPool(size_t threads)$/;"	f	class:ThreadPool
+args	flatland_npp/scripts/map_to_model.py	/^args = parser.parse_args()$/;"	v
 backIn	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^            } backIn = backInEasing{};$/;"	m	class:tweeny::easing	typeref:struct:tweeny::easing::backInEasing
 backInEasing	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^            static constexpr struct backInEasing {$/;"	s	class:tweeny::easing
 backInOut	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^            } backInOut = backInOutEasing{};$/;"	m	class:tweeny::easing	typeref:struct:tweeny::easing::backInOutEasing
@@ -35,7 +38,6 @@ backInOutEasing	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^      
 backOut	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^            } backOut = backOutEasing{};$/;"	m	class:tweeny::easing	typeref:struct:tweeny::easing::backOutEasing
 backOutEasing	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^            static constexpr struct backOutEasing {$/;"	s	class:tweeny::easing
 body_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  Body *body_;            \/\/\/<  body the laser frame attaches to$/;"	m	class:flatland_plugins_npp::RadiationSource
-body_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  Body *body_;            \/\/\/<  body the laser frame attaches to$/;"	m	class:flatland_plugins_npp::RadiationSource
 bounceIn	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^            } bounceIn = bounceInEasing{};$/;"	m	class:tweeny::easing	typeref:struct:tweeny::easing::bounceInEasing
 bounceInEasing	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^            static constexpr struct bounceInEasing {$/;"	s	class:tweeny::easing
 bounceInOut	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^            } bounceInOut = bounceInOutEasing{};$/;"	m	class:tweeny::easing	typeref:struct:tweeny::easing::bounceInOutEasing
@@ -43,7 +45,6 @@ bounceInOutEasing	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^    
 bounceOut	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^            } bounceOut = bounceOutEasing{};$/;"	m	class:tweeny::easing	typeref:struct:tweeny::easing::bounceOutEasing
 bounceOutEasing	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^            static constexpr struct bounceOutEasing {$/;"	s	class:tweeny::easing
 broadcast_tf_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  bool broadcast_tf_;     \/\/\/< whether to broadcast laser origin w.r.t body$/;"	m	class:flatland_plugins_npp::RadiationSource
-broadcast_tf_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  bool broadcast_tf_;     \/\/\/< whether to broadcast laser origin w.r.t body$/;"	m	class:flatland_plugins_npp::RadiationSource
 call	flatland_plugins_npp/include/thirdparty/tweeny/dispatcher.h	/^        R call(Func && f, const std::tuple<Ts...> & args) {$/;"	f	namespace:tweeny::detail
 callbackType	flatland_plugins_npp/include/thirdparty/tweeny/tweentraits.h	/^            typedef std::function<bool(tween<Ts...> &, Ts...)> callbackType;$/;"	t	struct:tweeny::detail::tweentraits
 circularIn	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^            } circularIn = circularInEasing{};$/;"	m	class:tweeny::easing	typeref:struct:tweeny::easing::circularInEasing
@@ -100,45 +101,41 @@ flatland_plugins_npp	flatland_plugins_npp/include/flatland_plugins_npp/radiation
 flatland_plugins_npp	flatland_plugins_npp/src/radiation_source.cpp	/^namespace flatland_plugins_npp {$/;"	n	file:
 flatland_plugins_npp	flatland_plugins_npp/src/radiation_source_world.cpp	/^namespace flatland_plugins_npp {$/;"	n	file:
 frame_id_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  std::string frame_id_;  \/\/\/< laser frame id name$/;"	m	class:flatland_plugins_npp::RadiationSource
-frame_id_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  std::string frame_id_;  \/\/\/< laser frame id name$/;"	m	class:flatland_plugins_npp::RadiationSource
 future	flatland_plugins_npp/include/thirdparty/ThreadPool.h	/^        -> std::future<typename std::result_of<F(Args...)>::type>;$/;"	m	class:ThreadPool::std
+generate_models	flatland_npp/scripts/map_to_model.py	/^def generate_models(imfile, csvfile, outdir, worldfile, resolution, origin):$/;"	f
 gens	flatland_plugins_npp/include/thirdparty/tweeny/dispatcher.h	/^        template<int ...S> struct gens<0, S...> {$/;"	s	namespace:tweeny::detail
 gens	flatland_plugins_npp/include/thirdparty/tweeny/dispatcher.h	/^        template<int N, int ...S> struct gens : gens<N - 1, N - 1, S...> { };$/;"	s	namespace:tweeny::detail
+get_contours	flatland_npp/scripts/map_to_model.py	/^def get_contours(img, model_list):$/;"	f
 impl	flatland_plugins_npp/include/thirdparty/tweeny/easingresolve.h	/^            static void impl(FunctionTuple &b, F1 f1, Fs... fs) {$/;"	f	struct:tweeny::detail::easingresolve
 impl	flatland_plugins_npp/include/thirdparty/tweeny/easingresolve.h	/^            static void impl(FunctionTuple &b, Fs... fs) {$/;"	f	struct:tweeny::detail::easingresolve
 impl	flatland_plugins_npp/include/thirdparty/tweeny/easingresolve.h	/^            static void impl(FunctionTuple &b, easing::linearEasing, Fs... fs) {$/;"	f	struct:tweeny::detail::easingresolve
 int2type	flatland_plugins_npp/include/thirdparty/tweeny/int2type.h	/^        template<std::size_t> struct int2type { };$/;"	s	namespace:tweeny::detail
 layers_bits_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  uint16_t layers_bits_;  \/\/\/< for setting the layers where laser will function$/;"	m	class:flatland_plugins_npp::RadiationSource
-layers_bits_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  uint16_t layers_bits_;  \/\/\/< for setting the layers where laser will function$/;"	m	class:flatland_plugins_npp::RadiationSource
 linear	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^            } linear = linearEasing{};$/;"	m	class:tweeny::easing	typeref:struct:tweeny::easing::linearEasing
 linearEasing	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^            static constexpr struct linearEasing {$/;"	s	class:tweeny::easing
 m_body_to_source_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  Eigen::Matrix3f m_body_to_source_;       \/\/\/< tf from body to laser$/;"	m	class:flatland_plugins_npp::RadiationSource
-m_body_to_source_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  Eigen::Matrix3f m_body_to_source_;       \/\/\/< tf from body to laser$/;"	m	class:flatland_plugins_npp::RadiationSource
 m_source_points_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  Eigen::MatrixXf m_source_points_;        \/\/\/< laser points in the laser' frame$/;"	m	class:flatland_plugins_npp::RadiationSource
-m_source_points_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  Eigen::MatrixXf m_source_points_;        \/\/\/< laser points in the laser' frame$/;"	m	class:flatland_plugins_npp::RadiationSource
 m_world_source_points_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  Eigen::MatrixXf m_world_source_points_;  \/\/\/ laser point in the world frame$/;"	m	class:flatland_plugins_npp::RadiationSource
-m_world_source_points_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  Eigen::MatrixXf m_world_source_points_;  \/\/\/ laser point in the world frame$/;"	m	class:flatland_plugins_npp::RadiationSource
 m_world_to_body_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  Eigen::Matrix3f m_world_to_body_;       \/\/\/< tf  from world to body$/;"	m	class:flatland_plugins_npp::RadiationSource
-m_world_to_body_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  Eigen::Matrix3f m_world_to_body_;       \/\/\/< tf  from world to body$/;"	m	class:flatland_plugins_npp::RadiationSource
 m_world_to_source_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  Eigen::Matrix3f m_world_to_source_;      \/\/\/< tf from world to laser$/;"	m	class:flatland_plugins_npp::RadiationSource
-m_world_to_source_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  Eigen::Matrix3f m_world_to_source_;      \/\/\/< tf from world to laser$/;"	m	class:flatland_plugins_npp::RadiationSource
+name	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  std::string name;$/;"	m	struct:flatland_plugins_npp::Source
 noTweenCallbackType	flatland_plugins_npp/include/thirdparty/tweeny/tweentraits.h	/^            typedef std::function<bool(Ts...)> noTweenCallbackType;$/;"	t	struct:tweeny::detail::tweentraits
 noValuesCallbackType	flatland_plugins_npp/include/thirdparty/tweeny/tweentraits.h	/^            typedef std::function<bool(tween<Ts...> &)> noValuesCallbackType;$/;"	t	struct:tweeny::detail::tweentraits
 noise_gen_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  std::normal_distribution<double> noise_gen_;  \/\/\/< gaussian noise generator$/;"	m	class:flatland_plugins_npp::RadiationSource
-noise_gen_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  std::normal_distribution<double> noise_gen_;  \/\/\/< gaussian noise generator$/;"	m	class:flatland_plugins_npp::RadiationSource
 noise_std_dev_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  double noise_std_dev_;  \/\/\/< noise std deviation$/;"	m	class:flatland_plugins_npp::RadiationSource
-noise_std_dev_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  double noise_std_dev_;  \/\/\/< noise std deviation$/;"	m	class:flatland_plugins_npp::RadiationSource
 onEnterCallbacks	flatland_plugins_npp/include/thirdparty/tweeny/tweenpoint.h	/^            typename traits::callbackType onEnterCallbacks;$/;"	m	struct:tweeny::detail::tweenpoint
 onSeekCallbacks	flatland_plugins_npp/include/thirdparty/tweeny/tween.h	/^            std::vector<typename traits::callbackType> onSeekCallbacks;$/;"	m	class:tweeny::tween
 onStepCallbacks	flatland_plugins_npp/include/thirdparty/tweeny/tween.h	/^            std::vector<typename traits::callbackType> onStepCallbacks;$/;"	m	class:tweeny::tween
 origin_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  Pose origin_;           \/\/\/< laser frame w.r.t the body$/;"	m	class:flatland_plugins_npp::RadiationSource
-origin_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  Pose origin_;           \/\/\/< laser frame w.r.t the body$/;"	m	class:flatland_plugins_npp::RadiationSource
 override	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  void BeforePhysicsStep(const Timekeeper &timekeeper) override;$/;"	m	class:flatland_plugins_npp::RadiationSource
 override	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  void OnInitialize(const YAML::Node &config) override;$/;"	m	class:flatland_plugins_npp::RadiationSource
-override	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  void BeforePhysicsStep(const Timekeeper &timekeeper) override;$/;"	m	class:flatland_plugins_npp::RadiationSource
-override	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  void OnInitialize(const YAML::Node &config) override;$/;"	m	class:flatland_plugins_npp::RadiationSource
+override	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  void BeforePhysicsStep(const Timekeeper &timekeeper) override;$/;"	m	class:flatland_plugins_npp::RadiationSourceWorld
+override	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  void OnInitialize(const YAML::Node &config) override;$/;"	m	class:flatland_plugins_npp::RadiationSourceWorld
+parser	flatland_npp/scripts/map_to_model.py	/^parser = argparse.ArgumentParser()$/;"	v
 points	flatland_plugins_npp/include/thirdparty/tweeny/tween.h	/^            std::vector<detail::tweenpoint<T, Ts...>> points;$/;"	m	class:tweeny::tween
 points	flatland_plugins_npp/include/thirdparty/tweeny/tween.h	/^            std::vector<detail::tweenpoint<T>> points;$/;"	m	class:tweeny::tween
+populate_modelfile	flatland_npp/scripts/map_to_model.py	/^def populate_modelfile(fname, model):$/;"	f
+populate_modellist	flatland_npp/scripts/map_to_model.py	/^def populate_modellist(model_list):$/;"	f
 quadraticIn	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^            } quadraticIn = quadraticInEasing{};$/;"	m	class:tweeny::easing	typeref:struct:tweeny::easing::quadraticInEasing
 quadraticInEasing	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^            static constexpr struct quadraticInEasing {$/;"	s	class:tweeny::easing
 quadraticInOut	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^            } quadraticInOut = quadraticInOutEasing{};$/;"	m	class:tweeny::easing	typeref:struct:tweeny::easing::quadraticInOutEasing
@@ -159,11 +156,10 @@ quinticInOutEasing	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^   
 quinticOut	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^            } quinticOut = quinticOutEasing{};$/;"	m	class:tweeny::easing	typeref:struct:tweeny::easing::quinticOutEasing
 quinticOutEasing	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^            static constexpr struct quinticOutEasing {$/;"	s	class:tweeny::easing
 rad_msg_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  std_msgs::Float32 rad_msg_;$/;"	m	class:flatland_plugins_npp::RadiationSource
-rad_msg_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  std_msgs::Float32 rad_msg_;$/;"	m	class:flatland_plugins_npp::RadiationSource
 rad_val_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  double rad_val_;        \/\/\/< value of source$/;"	m	class:flatland_plugins_npp::RadiationSource
-rad_val_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  double rad_val_;        \/\/\/< value of source$/;"	m	class:flatland_plugins_npp::RadiationSource
+read_model_list	flatland_npp/scripts/map_to_model.py	/^def read_model_list(fname, model_list):$/;"	f
 rng_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  std::default_random_engine rng_;              \/\/\/< random generator$/;"	m	class:flatland_plugins_npp::RadiationSource
-rng_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  std::default_random_engine rng_;              \/\/\/< random generator$/;"	m	class:flatland_plugins_npp::RadiationSource
+rng_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  std::default_random_engine rng_;              \/\/\/< random generator$/;"	m	class:flatland_plugins_npp::RadiationSourceWorld
 run	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^                static T run(float position, T start, T end) {$/;"	f	struct:tweeny::easing::backInEasing
 run	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^                static T run(float position, T start, T end) {$/;"	f	struct:tweeny::easing::backInOutEasing
 run	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^                static T run(float position, T start, T end) {$/;"	f	struct:tweeny::easing::backOutEasing
@@ -203,17 +199,19 @@ sinusoidalInOut	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^      
 sinusoidalInOutEasing	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^            static constexpr struct sinusoidalInOutEasing {$/;"	s	class:tweeny::easing
 sinusoidalOut	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^            } sinusoidalOut = sinusoidalOutEasing{};$/;"	m	class:tweeny::easing	typeref:struct:tweeny::easing::sinusoidalOutEasing
 sinusoidalOutEasing	flatland_plugins_npp/include/thirdparty/tweeny/easing.h	/^            static constexpr struct sinusoidalOutEasing {$/;"	s	class:tweeny::easing
+source_max_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  int source_max_ = 20;$/;"	m	class:flatland_plugins_npp::RadiationSourceWorld
+source_msg_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  flatland_plugins_npp::RadSources source_msg_;$/;"	m	class:flatland_plugins_npp::RadiationSourceWorld
 source_publisher_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  ros::Publisher source_publisher_;             \/\/\/< ros laser topic publisher$/;"	m	class:flatland_plugins_npp::RadiationSource
-source_publisher_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  ros::Publisher source_publisher_;             \/\/\/< ros laser topic publisher$/;"	m	class:flatland_plugins_npp::RadiationSource
+source_publisher_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  ros::Publisher source_publisher_;             \/\/\/< ros laser topic publisher$/;"	m	class:flatland_plugins_npp::RadiationSourceWorld
+source_size_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  int source_size_ = 0;$/;"	m	class:flatland_plugins_npp::RadiationSourceWorld
 source_tf_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  geometry_msgs::TransformStamped source_tf_;  \/\/\/< tf from body to laser frame$/;"	m	class:flatland_plugins_npp::RadiationSource
-source_tf_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  geometry_msgs::TransformStamped source_tf_;  \/\/\/< tf from body to laser frame$/;"	m	class:flatland_plugins_npp::RadiationSource
+sources_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  Source* sources_ = new Source[source_max_];$/;"	m	class:flatland_plugins_npp::RadiationSourceWorld
 stacked	flatland_plugins_npp/include/thirdparty/tweeny/tweenpoint.h	/^            uint32_t stacked;$/;"	m	struct:tweeny::detail::tweenpoint
 stop	flatland_plugins_npp/include/thirdparty/ThreadPool.h	/^    bool stop;$/;"	m	class:ThreadPool
 tasks	flatland_plugins_npp/include/thirdparty/ThreadPool.h	/^    std::queue< std::function<void()> > tasks;$/;"	m	class:ThreadPool
 tf_broadcaster_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  tf::TransformBroadcaster tf_broadcaster_;   \/\/\/< broadcast laser frame$/;"	m	class:flatland_plugins_npp::RadiationSource
-tf_broadcaster_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  tf::TransformBroadcaster tf_broadcaster_;   \/\/\/< broadcast laser frame$/;"	m	class:flatland_plugins_npp::RadiationSource
 topic_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  std::string topic_;     \/\/\/< topic name to publish the laser scan$/;"	m	class:flatland_plugins_npp::RadiationSource
-topic_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  std::string topic_;     \/\/\/< topic name to publish the laser scan$/;"	m	class:flatland_plugins_npp::RadiationSource
+topic_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  std::string topic_;     \/\/\/< topic name to publish the laser scan$/;"	m	class:flatland_plugins_npp::RadiationSourceWorld
 total	flatland_plugins_npp/include/thirdparty/tweeny/tween.h	/^            uint32_t total = 0; \/\/ total runtime$/;"	m	class:tweeny::tween
 traits	flatland_plugins_npp/include/thirdparty/tweeny/tweenpoint.h	/^            typedef detail::tweentraits<Ts...> traits;$/;"	t	struct:tweeny::detail::tweenpoint
 tween	flatland_plugins_npp/include/thirdparty/tweeny/tween.h	/^    class tween {$/;"	c	namespace:tweeny
@@ -234,13 +232,12 @@ type	flatland_plugins_npp/include/thirdparty/tweeny/tweentraits.h	/^            
 type	flatland_plugins_npp/include/thirdparty/tweeny/tweentraits.h	/^            typedef tween<Ts...> type;$/;"	t	struct:tweeny::detail::tweentraits
 type	flatland_plugins_npp/include/thirdparty/tweeny/tweentraits.h	/^        template<typename T, typename...> struct first { typedef T type; };$/;"	t	struct:tweeny::detail::first
 update_rate_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  double update_rate_;    \/\/\/< the rate laser scan will be published$/;"	m	class:flatland_plugins_npp::RadiationSource
-update_rate_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  double update_rate_;    \/\/\/< the rate laser scan will be published$/;"	m	class:flatland_plugins_npp::RadiationSource
+update_rate_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  double update_rate_;    \/\/\/< the rate laser scan will be published$/;"	m	class:flatland_plugins_npp::RadiationSourceWorld
 update_timer_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  flatland_plugins::UpdateTimer update_timer_;                  \/\/\/< for controlling update rate$/;"	m	class:flatland_plugins_npp::RadiationSource
-update_timer_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  flatland_plugins::UpdateTimer update_timer_;                  \/\/\/< for controlling update rate$/;"	m	class:flatland_plugins_npp::RadiationSource
+update_timer_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  flatland_plugins::UpdateTimer update_timer_;                  \/\/\/< for controlling update rate$/;"	m	class:flatland_plugins_npp::RadiationSourceWorld
 v_world_source_origin_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  Eigen::Vector3f v_world_source_origin_;  \/\/\/< (0,0) in the laser frame$/;"	m	class:flatland_plugins_npp::RadiationSource
-v_world_source_origin_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  Eigen::Vector3f v_world_source_origin_;  \/\/\/< (0,0) in the laser frame$/;"	m	class:flatland_plugins_npp::RadiationSource
 v_zero_point_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source.h	/^  Eigen::Vector3f v_zero_point_;          \/\/\/< point representing (0,0)$/;"	m	class:flatland_plugins_npp::RadiationSource
-v_zero_point_	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  Eigen::Vector3f v_zero_point_;          \/\/\/< point representing (0,0)$/;"	m	class:flatland_plugins_npp::RadiationSource
+val	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  double val;$/;"	m	struct:flatland_plugins_npp::Source
 value	flatland_plugins_npp/include/thirdparty/tweeny/tweentraits.h	/^        template<typename T, typename U, typename... Ts> struct equal<T, U, Ts...> { enum { value = false }; };$/;"	e	enum:tweeny::detail::equal::__anon4
 value	flatland_plugins_npp/include/thirdparty/tweeny/tweentraits.h	/^        template<typename T, typename... Ts> struct equal<T, T, Ts...>  { enum { value = true && equal<Ts...>::value }; };$/;"	e	enum:tweeny::detail::equal::__anon3
 value	flatland_plugins_npp/include/thirdparty/tweeny/tweentraits.h	/^        template<typename T> struct equal<T> { enum { value = true }; };$/;"	e	enum:tweeny::detail::equal::__anon2
@@ -251,4 +248,6 @@ valuetype	flatland_plugins_npp/include/thirdparty/tweeny/tweentraits.h	/^       
 valuetype	flatland_plugins_npp/include/thirdparty/tweeny/tweentraits.h	/^        struct valuetype<false, Ts...> {$/;"	s	namespace:tweeny::detail
 valuetype	flatland_plugins_npp/include/thirdparty/tweeny/tweentraits.h	/^        struct valuetype<true, Ts...> {$/;"	s	namespace:tweeny::detail
 workers	flatland_plugins_npp/include/thirdparty/ThreadPool.h	/^    std::vector< std::thread > workers;$/;"	m	class:ThreadPool
+x	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  double x;$/;"	m	struct:flatland_plugins_npp::Source
+y	flatland_plugins_npp/include/flatland_plugins_npp/radiation_source_world.h	/^  double y;$/;"	m	struct:flatland_plugins_npp::Source
 ~ThreadPool	flatland_plugins_npp/include/thirdparty/ThreadPool.h	/^inline ThreadPool::~ThreadPool()$/;"	f	class:ThreadPool

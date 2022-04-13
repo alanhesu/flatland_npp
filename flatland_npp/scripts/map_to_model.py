@@ -4,6 +4,7 @@ import imutils
 import csv
 import numpy as np
 import os
+import yaml
 
 def read_model_list(fname, model_list):
     # read in csv file with rows: model_name, r, g, b
@@ -58,23 +59,44 @@ def get_contours(img, model_list):
         # cv2.waitKey(0)
     return model_list
 
+def get_line_points(model):
+    # given the model shape, return the line along the rectangle's long axis
+    line_points = np.array([[0.0, 0.0], [0.0, 0.0]])
+
+    # shape = np.array((4,2)) for four (x,y) pairs
+    shape = model[7] # get four points of the rectangle
+    xdiff = np.max(shape[:,0]) - np.min(shape[:,0])
+    ydiff = np.max(shape[:,1]) - np.min(shape[:,1])
+
+    if (xdiff > ydiff):
+        line_points[0,0] = np.min(shape[:,0])
+        line_points[1,0] = np.max(shape[:,0])
+    else:
+        line_points[0,1] = np.min(shape[:,1])
+        line_points[1,1] = np.max(shape[:,1])
+
+    return line_points
+
 def populate_modelfile(fname, model):
     with open(fname, 'r') as f:
-        lines = f.readlines()
+        model_yaml = yaml.safe_load(f)
 
-    for i in range(0, len(lines)):
-        if 'name:' in lines[i]:
-            lines[i] = lines[i][:-1] + ' ' + model[0] + '\n'
-        if 'points:' in lines[i]:
-            lines[i] = lines[i][:-1] + ' ' + np.array2string(model[4], separator=', ').replace('\n', '') + '\n'
+        model_yaml['bodies'][0]['name'] = model[0]
+        model_yaml['bodies'][0]['footprints'][0]['points'] = model[7].tolist()
+        model_yaml['plugins'][0]['enabled'] = model[4]
+        model_yaml['plugins'][0]['body'] = model[0]
+        model_yaml['plugins'][0]['geometry'] = model[5]
+        model_yaml['plugins'][0]['value'] = model[6]
+        line_points = get_line_points(model)
+        model_yaml['plugins'][0]['line_points'] = line_points.tolist()
 
-    return lines
+        return model_yaml
 
 def populate_modellist(model_list):
     lines = []
     for model in model_list:
         modnum = 0
-        for origin in model[5]:
+        for origin in model[8]:
             lines.append('  - name: {}{}\n'.format(model[0], modnum))
             lines.append('    pose: [{}, {}, 0.0]\n'.format(origin[0], origin[1]))
             lines.append('    model: {}.model.yaml\n'.format(model[0]))
@@ -96,11 +118,11 @@ def generate_models(imfile, csvfile, outdir, worldfile, resolution, origin):
 
     # convert contours to polygon points for flatland model
     for i in range(0, len(model_list)):
-        model_list[i][4] = (model_list[i][4] - model_list[i][5][0])*resolution
+        model_list[i][7] = (model_list[i][7] - model_list[i][8][0])*resolution
 
         # convert points to world coordinates
-        for j in range(0, len(model_list[i][5])):
-            loc = model_list[i][5][j]
+        for j in range(0, len(model_list[i][8])):
+            loc = model_list[i][8][j]
             loc[0] = loc[0]*resolution + origin[0]
             loc[1] = (h - loc[1])*resolution + origin[1]
 
@@ -108,10 +130,11 @@ def generate_models(imfile, csvfile, outdir, worldfile, resolution, origin):
     # read in a template file template.model.yaml
     template_file = os.path.join(os.path.dirname(__file__), 'template.model.yaml')
     for model in model_list:
-        lines = populate_modelfile(template_file, model)
+        model_yaml = populate_modelfile(template_file, model)
         model_file = os.path.join(outdir, model[0] + '.model.yaml')
         with open(model_file, 'w') as f:
-            f.writelines(lines)
+            yaml.dump(model_yaml, f)
+            # f.writelines(lines)
 
     # generate model list
     # world_modellist = 'modellist.world.yaml'

@@ -1,21 +1,28 @@
-bodies:  # List of named bodies
-  - name: tank1
-    pose: [0, 0, 0]
-    type: static
-    color: [1, 1, 0, 0.75]
-    linear_damping: 1
-    angular_damping: .5
-    footprints:
-      - type: polygon
-        points: [[-6.9 , -1.45], [-6.9 ,  1.45], [ 6.9 ,  1.45], [ 6.9 , -1.45]]
-        density: 1
-        layers: ["2d"]
+bodies:
+- angular_damping: 0.5
+  color: [1, 1, 0, 0.75]
+  footprints:
+  - density: 1
+    layers: [2d]
+    points:
+    - [-6.9, -1.4500000000000002]
+    - [-6.9, 1.4500000000000002]
+    - [6.9, 1.4500000000000002]
+    - [6.9, -1.4500000000000002]
+    type: polygon
+  linear_damping: 1
+  name: tank1
+  pose: [0, 0, 0]
+  type: static
 plugins:
-  - type: RadiationSource
-    name: source0
-    enabled: false
-    body: tank1
-    geometry: point
-    update_rate: 50
-    origin: [0, 0, 0]
-    value: 900
+- body: tank1
+  enabled: 'true'
+  geometry: point
+  line_points:
+  - [-6.9, 0.0]
+  - [6.9, 0.0]
+  name: source0
+  origin: [0, 0, 0]
+  type: RadiationSource
+  update_rate: 50
+  value: '600'

@@ -1,12 +1,28 @@
-bodies:  # List of named bodies
-  - name: condenser
-    pose: [0, 0, 0]
-    type: static
-    color: [1, 1, 0, 0.75]
-    linear_damping: 1
-    angular_damping: .5
-    footprints:
-      - type: polygon
-        points: [[-7.95, -3.65], [-7.95,  3.65], [ 7.95,  3.65], [ 7.95, -3.65]]
-        density: 1
-        layers: ["2d"]
+bodies:
+- angular_damping: 0.5
+  color: [1, 1, 0, 0.75]
+  footprints:
+  - density: 1
+    layers: [2d]
+    points:
+    - [-7.95, -3.6500000000000004]
+    - [-7.95, 3.6500000000000004]
+    - [7.95, 3.6500000000000004]
+    - [7.95, -3.6500000000000004]
+    type: polygon
+  linear_damping: 1
+  name: condenser
+  pose: [0, 0, 0]
+  type: static
+plugins:
+- body: condenser
+  enabled: 'false'
+  geometry: line
+  line_points:
+  - [-7.95, 0.0]
+  - [7.95, 0.0]
+  name: source0
+  origin: [0, 0, 0]
+  type: RadiationSource
+  update_rate: 50
+  value: '0'

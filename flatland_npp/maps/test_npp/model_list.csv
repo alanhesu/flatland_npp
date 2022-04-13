@@ -1,6 +1,6 @@
-condenser,30,0,170
-condenser_pipe1,255,255,0
-condenser_pipe2,255,230,0
-tank1,255,0,0
-tank2,255,30,0
-pump1,0,255,0
+condenser,30,0,170,false,line,0
+condenser_pipe1,255,255,0,true,line,600
+condenser_pipe2,255,230,0,true,line,600
+tank1,255,0,0,true,point,600
+tank2,255,30,0,false,line,0
+pump1,0,255,0,false,line,0

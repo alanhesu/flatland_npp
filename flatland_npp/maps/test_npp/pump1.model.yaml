@@ -1,12 +1,28 @@
-bodies:  # List of named bodies
-  - name: pump1
-    pose: [0, 0, 0]
-    type: static
-    color: [1, 1, 0, 0.75]
-    linear_damping: 1
-    angular_damping: .5
-    footprints:
-      - type: polygon
-        points: [[-1.05, -1.05], [-1.05,  1.05], [ 1.05,  1.05], [ 1.05, -1.05]]
-        density: 1
-        layers: ["2d"]
+bodies:
+- angular_damping: 0.5
+  color: [1, 1, 0, 0.75]
+  footprints:
+  - density: 1
+    layers: [2d]
+    points:
+    - [-1.05, -1.05]
+    - [-1.05, 1.05]
+    - [1.05, 1.05]
+    - [1.05, -1.05]
+    type: polygon
+  linear_damping: 1
+  name: pump1
+  pose: [0, 0, 0]
+  type: static
+plugins:
+- body: pump1
+  enabled: 'false'
+  geometry: line
+  line_points:
+  - [0.0, -1.05]
+  - [0.0, 1.05]
+  name: source0
+  origin: [0, 0, 0]
+  type: RadiationSource
+  update_rate: 50
+  value: '0'

@@ -10,3 +10,13 @@ bodies:  # List of named bodies
         points:
         density: 1
         layers: ["2d"]
+plugins:
+  - type: RadiationSource
+    name: source0
+    enabled:
+    body:
+    geometry:
+    update_rate: 50
+    origin: [0, 0, 0]
+    value:
+    line_points:
