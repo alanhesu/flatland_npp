@@ -8,6 +8,15 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  geometry_msgs
+  message_filters
+  nav_msgs
+  sensor_msgs
+  move_base_msgs
+  flatland_msgs
+  std_msgs
+  roscpp
+  rospy
 )
 
 

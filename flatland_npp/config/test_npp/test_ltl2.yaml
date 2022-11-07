@@ -1,0 +1,1 @@
+hard_task: "(<> (r1 && measuring) && <> (r2 && measuring) && <> (r3 && measuring) && <> (r8 && measuring)) && [] (measuring -> X !measuring)"

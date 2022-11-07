@@ -55,15 +55,8 @@ models:
     #pose: [0, 0, 0]
     #model: "../../robot/turtlebot.model.yaml"
 plugins:
-  - type: flatland_plugins::RadiationSourceWorld
+  - type: RadiationSourceWorld
     name: source0
     topic: "rad_sources"
     update_rate: 50
     layers: ["all"]
-  #- type: flatland_plugins::RandomWall
-    #name: test1
-    #layer: "2d"
-    #num_of_walls: 10
-    #wall_wall_dist: 1
-    #double_wall: true
-    #robot_name: turtlebot1

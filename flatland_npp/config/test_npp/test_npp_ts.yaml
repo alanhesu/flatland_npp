@@ -1,0 +1,163 @@
+# TS definitions are to be interpreted by the agent node. The LTL core planner only uses the node names, connections, weights, and action names to build its automaton.
+#
+# Possible TS types:
+#   3d_pose_region (3D pose [[x,y,z], [x,y,z,w]] with quaternion orientation)
+#   2d_pose_region (2D pose [[x,y], phi] with euler angle orientation)
+#   3d_point_region (3D point [x, y, z] without orientation)
+#   2d_point_region (2D point [x, y] without orientation)
+#   turtlebot_load
+
+state_dim: ["2d_pose_region", "turtlebot_measure"]
+state_models:
+    2d_pose_region:
+        ts_type: "2d_pose_region"
+        initial: "r6"
+        nodes:
+            r1:
+                attr:
+                    type: "square"
+                    pose: [[25,49], [0]]
+                    length: 1
+                    hysteresis: 0.05
+                connected_to:
+                    r5: "goto_r5"
+            r2:
+                attr:
+                    type: "square"
+                    pose: [[25,37], [0]]
+                    length: 1
+                    hysteresis: 0.05
+                connected_to:
+                    r5: "goto_r5"
+            r3:
+                attr:
+                    type: "square"
+                    pose: [[23,25], [0]]
+                    length: 1
+                    hysteresis: 0.05
+                connected_to:
+                    r5: "goto_r5"
+            r4:
+                attr:
+                    type: "square"
+                    pose: [[23,12], [0]]
+                    length: 1
+                    hysteresis: 0.05
+                connected_to:
+                    r5: "goto_r5"
+            r5:
+                attr:
+                    type: "square"
+                    pose: [[43,10], [0]]
+                    length: 1
+                    hysteresis: 0.05
+                connected_to:
+                    r1: "goto_r1"
+                    r2: "goto_r2"
+                    r3: "goto_r3"
+                    r4: "goto_r4"
+                    r6: "goto_r6"
+                    r7: "goto_r7"
+                    r8: "goto_r8"
+            r6:
+                attr:
+                    type: "square"
+                    pose: [[89,50], [0]]
+                    length: 1
+                    hysteresis: 0.05
+                connected_to:
+                    r5: "goto_r5"
+            r7:
+                attr:
+                    type: "square"
+                    pose: [[80,31], [0]]
+                    length: 1
+                    hysteresis: 0.05
+                connected_to:
+                    r5: "goto_r5"
+            r8:
+                attr:
+                    type: "square"
+                    pose: [[60,12], [0]]
+                    length: 1
+                    hysteresis: 0.05
+                connected_to:
+                    r5: "goto_r5"
+    turtlebot_measure:
+        ts_type: "turtlebot_measure"
+        initial: "noop"
+        nodes:
+            noop:
+                connected_to:
+                    measuring: "measure"
+            measuring:
+                connected_to:
+                    noop: "noop"
+
+actions:
+    goto_r1:
+        type: "move"
+        weight: 10
+        guard: "1"
+        attr:
+            region: r1
+            pose: [[25,49,0], [0,0,0,1]]
+    goto_r2:
+        type: "move"
+        weight: 10
+        guard: "1"
+        attr:
+            region: r2
+            pose: [[25,37,0], [0,0,0,1]]
+    goto_r3:
+        type: "move"
+        weight: 10
+        guard: "1"
+        attr:
+            region: r3
+            pose: [[23,25,0], [0,0,0,1]]
+    goto_r4:
+        type: "move"
+        weight: 10
+        guard: "1"
+        attr:
+            region: r4
+            pose: [[23,12,0], [0,0,0,1]]
+    goto_r5:
+        type: "move"
+        weight: 10
+        guard: "1"
+        attr:
+            region: r5
+            pose: [[43,10,0], [0,0,0,1]]
+    goto_r6:
+        type: "move"
+        weight: 10
+        guard: "1"
+        attr:
+            region: r6
+            pose: [[89,50,0], [0,0,0,1]]
+    goto_r7:
+        type: "move"
+        weight: 10
+        guard: "1"
+        attr:
+            region: r7
+            pose: [[80,31,0], [0,0,0,1]]
+    goto_r8:
+        type: "move"
+        weight: 10
+        guard: "1"
+        attr:
+            region: r8
+            pose: [[60,12,0], [0,0,0,1]]
+    measure:
+        type: "turtlebot_measure"
+        guard: "1"
+        weight: 20
+    noop:
+        type: "turtlebot_noop"
+        guard: "1"
+        weight: 0
+
+

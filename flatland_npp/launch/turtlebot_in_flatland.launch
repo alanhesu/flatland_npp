@@ -16,7 +16,7 @@
   <arg name="move_forward_only" default="false"/>
   <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
   <!-- Name of the map to use (without path nor extension) and initial position -->
-  <arg name="initial_pose_x" default="40.0"/>
+  <arg name="initial_pose_x" default="89.0"/>
   <arg name="initial_pose_y" default="50.0"/>
   <arg name="initial_pose_a" default="0.0"/>
   <arg name="min_obstacle_height" default="0.0"/>
@@ -29,7 +29,8 @@
     roslaunch flatland_Server server.launch world_path:="/some/world.yaml" initial_rate:="30.0"
   -->
   <arg name="world_path"   default="$(find flatland_npp)/maps/test_npp/test_npp.world.yaml"/>
-  <arg name="update_rate" default="100.0"/>
+  <!--<arg name="world_path"   default="$(find flatland_npp)/maps/open_field_1/world.yaml"/>-->
+  <arg name="update_rate" default="3000.0"/>
   <arg name="step_size" default="0.01"/>
   <arg name="viz_pub_rate" default="30.0"/>
   <arg name="show_viz" default="true"/>
@@ -99,40 +100,68 @@
 
 
   <!--  ************** AMCL ************** -->
-  <include file="$(find turtlebot3_navigation)/launch/amcl.launch">
-    <arg name="scan_topic" value="$(arg laser_topic)"/>
-    <!--<arg name="use_map_topic" value="true"/>-->
-    <!--<arg name="global_frame_id" value="$(arg global_frame_id)"/>-->
-    <arg name="initial_pose_x" value="$(arg initial_pose_x)"/>
-    <arg name="initial_pose_y" value="$(arg initial_pose_y)"/>
-    <arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
-  </include>
-  <param name="amcl/laser_max_range" value="30"/>
-  <param name="amcl/odom_frame_id" value="$(arg odom_frame_id)"/>
-  <param name="amcl/base_frame_id" value="$(arg base_frame_id)"/>
-  <param name="amcl/use_map_topic" value="true"/>
-  <param name="amcl/global_frame_id" value="$(arg global_frame_id)"/>
-  <param name="amcl/laser_max_range"           value="20"/>
-  <param name="amcl/laser_max_beams"           value="360"/>
-  <param name="amcl/laser_z_hit"               value="0.5"/>
-  <param name="amcl/laser_z_short"             value="0.05"/>
-  <param name="amcl/laser_z_max"               value="0.05"/>
-  <param name="amcl/laser_z_rand"              value="0.5"/>
-  <param name="amcl/laser_sigma_hit"           value="0.2"/>
-  <param name="amcl/laser_lambda_short"        value="0.1"/>
-  <param name="amcl/laser_likelihood_max_dist" value="2.0"/>
-  <param name="amcl/odom_alpha1"               value="0.0"/>
-  <param name="amcl/odom_alpha2"               value="0.0"/>
-  <param name="amcl/odom_alpha3"               value="0.0"/>
-  <param name="amcl/odom_alpha4"               value="0.0"/>
-  <param name="amcl/tf_broadcast"               value="false"/>
+  <!--<include file="$(find turtlebot3_navigation)/launch/amcl.launch">-->
+    <!--<arg name="scan_topic" value="$(arg laser_topic)"/>-->
+    <!--[><arg name="use_map_topic" value="true"/><]-->
+    <!--[><arg name="global_frame_id" value="$(arg global_frame_id)"/><]-->
+    <!--<arg name="initial_pose_x" value="$(arg initial_pose_x)"/>-->
+    <!--<arg name="initial_pose_y" value="$(arg initial_pose_y)"/>-->
+    <!--<arg name="initial_pose_a" value="$(arg initial_pose_a)"/>-->
+  <!--</include>-->
+  <!--<param name="amcl/laser_max_range" value="30"/>-->
+  <!--<param name="amcl/odom_frame_id" value="$(arg odom_frame_id)"/>-->
+  <!--<param name="amcl/base_frame_id" value="$(arg base_frame_id)"/>-->
+  <!--<param name="amcl/use_map_topic" value="true"/>-->
+  <!--<param name="amcl/global_frame_id" value="$(arg global_frame_id)"/>-->
+  <!--<param name="amcl/laser_max_range"           value="20"/>-->
+  <!--<param name="amcl/laser_max_beams"           value="360"/>-->
+  <!--<param name="amcl/laser_z_hit"               value="0.5"/>-->
+  <!--<param name="amcl/laser_z_short"             value="0.05"/>-->
+  <!--<param name="amcl/laser_z_max"               value="0.05"/>-->
+  <!--<param name="amcl/laser_z_rand"              value="0.5"/>-->
+  <!--<param name="amcl/laser_sigma_hit"           value="0.2"/>-->
+  <!--<param name="amcl/laser_lambda_short"        value="0.1"/>-->
+  <!--<param name="amcl/laser_likelihood_max_dist" value="2.0"/>-->
+  <!--<param name="amcl/odom_alpha1"               value="0.0"/>-->
+  <!--<param name="amcl/odom_alpha2"               value="0.0"/>-->
+  <!--<param name="amcl/odom_alpha3"               value="0.0"/>-->
+  <!--<param name="amcl/odom_alpha4"               value="0.0"/>-->
+  <!--<param name="amcl/tf_broadcast"               value="false"/>-->
 
   <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 0 0 0 map odom 50">
   </node>
 
+  <!--<node name="get_cost" pkg="flatland_npp" type="get_cost.py" output="screen">-->
+  <!--</node>-->
   <!--  **************** Visualisation ****************  -->
   <group if="$(arg show_viz)">
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find flatland_npp)/rviz/robot_navigation.rviz"/>
   </group>
+
+  <!--  **************** Planning ****************  -->
+  <!--<remap from="agent_2d_region_pose" to="odom"/>-->
+  <arg name="initial_ts_state_from_agent" default="False"/>
+  <arg name="agent_name" default="turtlebot"/>
+
+  <param name="agent_name" type="string" value="$(arg agent_name)" />
+  <!-- hard and soft task parameters -->
+  <rosparam command="load" file="$(find flatland_npp)/config/test_npp/test_ltl2.yaml" />
+  <!-- Transition system -->
+  <param name="transition_system_textfile" textfile="$(find flatland_npp)/config/test_npp/test_npp_ts.yaml"/>
+
+  <!-- Run planner node -->
+  <!-- <node name="ltl_planner" pkg="ltl_automaton_planner" type="planner_node.py" output="screen" launch-prefix='python3 -m pdb'> -->
+  <node name="ltl_planner" pkg="ltl_automaton_planner" type="planner_node.py" output="screen">
+    <param name="initial_ts_state_from_agent" type="bool" value="$(arg initial_ts_state_from_agent)" />
+  </node>
+
+  <node name="region_2d_pose_monitor" pkg="ltl_automaton_std_transition_systems" type="region_2d_pose_monitor.py" output="screen">
+  </node>
+
+  <node name="odom_to_pose" pkg="test_ltl" type="odom_to_pose.py" output="screen">
+  </node>
+
+  <node name="ltl_monitor_turtlebot" pkg="test_ltl" type="ltl_monitor_turtlebot.py" output="screen">
+  </node>
 
 </launch>

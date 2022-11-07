@@ -1,10 +1,10 @@
 bodies:  # List of named bodies
   - name: base_footprint
-    pose: [0, 0, 0] 
-    type: dynamic  
-    color: [0.5, 0.5, 0.5, 1.0] 
+    pose: [0, 0, 0]
+    type: dynamic
+    color: [0.5, 0.5, 0.5, 1.0]
     footprints:
-      - type: polygon 
+      - type: polygon
         sensor: true
         points: [[-0.445, -0.29], [-0.445, 0.29], [0.445, 0.29], [0.445, -0.29]]
         density: 0
@@ -12,13 +12,13 @@ bodies:  # List of named bodies
         collision: false
 
 plugins:
-  - type: DiffDrive 
-    name: diff_drive 
+  - type: DiffDrive
+    name: diff_drive
     body: base_footprint
     odom_frame_id: odom
     odom_pub: odom  # topic odom is published on
     pub_rate: 10
-  
+
   - type: Laser
     name: static_laser
     frame: static_laser_link
