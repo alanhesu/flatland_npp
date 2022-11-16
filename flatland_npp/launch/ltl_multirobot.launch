@@ -15,13 +15,14 @@
 
   <!--<param name="agent_name" type="string" value="$(arg agent_name)" />-->
   <!-- hard and soft task parameters -->
-  <rosparam command="load" file="$(find flatland_npp)/config/test_npp/test_ltl2.yaml" />
+  <rosparam command="load" file="$(find flatland_npp)/config/test_npp_2/ltl.yaml" />
   <!-- Transition system -->
-  <param name="transition_system_textfile_1" textfile="$(find flatland_npp)/config/test_npp/test_npp_ts.yaml"/>
-  <param name="transition_system_textfile_2" textfile="$(find flatland_npp)/config/test_npp/test_npp_ts2.yaml"/>
+  <param name="transition_system_textfile_1" textfile="$(find flatland_npp)/config/test_npp_2/ts1.yaml"/>
+  <param name="transition_system_textfile_2" textfile="$(find flatland_npp)/config/test_npp_2/ts2.yaml"/>
 
   <!-- Run planner node -->
   <node name="ltl_planner" pkg="ltl_automaton_planner" type="multi_robot_planner_node.py" output="screen" launch-prefix='python3 -m pdb'>
+  <!--<node name="ltl_planner" pkg="ltl_automaton_planner" type="multi_robot_planner_node.py" output="screen">-->
     <param name="initial_ts_state_from_agent" type="bool" value="$(arg initial_ts_state_from_agent)" />
   </node>
 
